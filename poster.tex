@@ -1,0 +1,60 @@
+\documentclass[a0,landscape]{a0poster}
+
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{postercols}
+\usepackage{flowfram}
+\usepackage{blindtext}
+
+\setlength{\vcolumnsep}{\baselineskip}
+\setlength{\columnsep}{\vcolumnsep}
+
+\Ncolumntop{static}{4}{4in}
+\setstaticframe{1}{label={title}}
+
+\newlength\offset
+\setlength{\offset}{5in}
+\addtolength{\offset}{\vcolumnsep}
+\computeflowframearea{2,3}
+\addtolength{\ffareaheight}{-\offset}
+
+\setflowframe{2,3}{y=\offset,height=\ffareaheight}
+
+\newstaticframe{\ffareawidth}{5in}{\ffareax}{0in}[table]
+\setstaticframe{2}{clear}
+
+\setallflowframes{border=plain}
+\setallstaticframes{border=plain}
+
+\title{A Sample Poster Created Using \LaTeX ( flowfram package}
+\author{Shweta Pathak\\
+Guru Nanak Dev Engineering College\\
+Ludhiana }
+\date{\today}
+
+\begin{document}
+\begin{staticcontents*}{title}
+\maketitle
+\end{staticcontents*}
+\thispagestyle{empty}
+
+\section{Introduction}
+This is the main body of the poster.
+\blindtext \vspace{4cm}
+
+\subsection{A Sub Section}
+Here's a sub section that references the wide
+table, see Table~\ref{tab:wide}.
+\blindtext \vspace{4cm}
+
+
+\begin{staticcontents*}{table}
+\begin{statictable}
+\caption{A very wide table that spans two columns}
+\label{tab:wide}
+% table contents
+\end{statictable}
+\end{staticcontents*}
+
+\end{document}
